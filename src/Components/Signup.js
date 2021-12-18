@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import Spinner from './Spinner';
 
 const Signup = (props) => {
+    const [loading, setLoading] = useState(false);
     const port = "https://aqueous-refuge-26214.herokuapp.com/"
     const navigate = useNavigate();
 
@@ -11,10 +12,10 @@ const Signup = (props) => {
     const handleonSubmit = async (e) => {
 
         e.preventDefault();
-
+        setLoading(true)
+        console.log(" 15 line Before the fectcj in Signup");
         try {
-            // Fetching is To do in this is Context API
-
+        
             const { name, email, password } = credentials;
             const response = await fetch(`${port}api/auth/createUser`, {
                 method: 'POST',
@@ -30,10 +31,12 @@ const Signup = (props) => {
             if (json.success) {
                 // redirect
                 // localStorage.setItem('token', json.authtoken);
+                setLoading(false)
                 navigate('/login')
                 props.showalert("Account Created Successfully", "success")
             }
             else {
+                setLoading(false)
                 props.showalert("Invalid Details", "danger")
             }
 
@@ -50,6 +53,7 @@ const Signup = (props) => {
 
     return (
         <div className="container mt-3 my-2">
+            {loading && <Spinner />}  
             <h1>Create a New Account </h1>
             <form onSubmit={handleonSubmit}  >
                 <div className="mb-3">
@@ -66,7 +70,7 @@ const Signup = (props) => {
                     <input type="password" className="form-control" name="password" id="password" onChange={onchange} minLength={5} required />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="cpassword" className="form-label">Enter Your Password</label>
+                    <label htmlFor="cpassword" className="form-label">Re-Enter Your Password</label>
                     <input type="password" className="form-control" name="cpassword" id="cpassword" onChange={onchange} minLength={5} required />
                 </div>
 

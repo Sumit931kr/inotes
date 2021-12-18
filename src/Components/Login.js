@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Spinner from './Spinner';
 
 const Login = (props) => {
-
+    const [loading, setLoading] = useState(false);
     const port = "https://aqueous-refuge-26214.herokuapp.com/"
     // const port = "https://aqueous-refuge-26214.herokuapp.com"
 
@@ -13,11 +14,12 @@ const Login = (props) => {
     const handleonSubmit = async (e) => {
   
         e.preventDefault();
-   
+        setLoading(true)
         try {
             // Fetching is To do in this is Context API
             
             const response = await fetch(`${port}api/auth/loginUser`, {
+                
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -32,9 +34,11 @@ const Login = (props) => {
                 localStorage.setItem('token', json.authtoken);
                 props.showalert("Logged in Successfully", "success")
                 // redirect
-                navigate('/')
+                setLoading(false)
+                navigate('/inotes')
             }
             else{
+                setLoading(false)
                 props.showalert("Invalid Credentials ", "danger")
             }
 
@@ -51,6 +55,7 @@ const Login = (props) => {
 
     return (
         <div >
+            {loading && <Spinner />}  
             <h1>Login to Continue To iNoteBook</h1>
             <form onSubmit={handleonSubmit} >
                 <div className="mb-3">
@@ -62,7 +67,6 @@ const Login = (props) => {
                     <label htmlFor="password" className="form-label">Enter Your Password</label>
                     <input type="password" className="form-control" value={credentials.password} name="password" id="password" onChange={onchange} />
                 </div>
-
                 <button type="submit" className="btn btn-primary" >Submit</button>
             </form>
         </div>

@@ -24,7 +24,7 @@ type : type,
  )
  setTimeout(() => {
    setalert(null)
- }, 1500);
+ }, 2000);
 }
 
   return (
@@ -36,7 +36,7 @@ type : type,
           <Alert alert={alert}/>
           <div className="container">
             <Routes>
-              <Route exact path="/" element={<Home showalert={showalert}/>} />
+              <Route exact path="/inotes" element={<Home showalert={showalert}/>} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/login" element={<Login showalert={showalert}/>} />
               <Route exact path="/signup" element={<Signup showalert={showalert}/>} />

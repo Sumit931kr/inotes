@@ -2,7 +2,7 @@
   "name": "inotebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Sumit931kr.github.io/inotes/",
+  "homepage": "http://Sumit931kr.github.io/inotes",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

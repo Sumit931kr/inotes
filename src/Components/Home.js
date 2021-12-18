@@ -5,6 +5,7 @@ export default function Home(props) {
   const {showalert} = props
   return (
     <div>
+
     <Notes showalert={showalert}/>
     </div>
   )

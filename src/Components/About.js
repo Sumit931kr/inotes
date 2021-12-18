@@ -1,19 +1,33 @@
 import React from 'react'
 // import noteContext from '../context/notes/noteContext'
+import { Link } from "react-router-dom";
+import '../App.css'
 
 export default function About() {
 
-   
- return (
-        <div className="container">
-     <h1>Contact Us via</h1>
-     <div className="d-flex justify-content-between align-items-center my-3 mx-4" style={{width: "18rem"}}>
-    <div> <a href="https://www.instagram.com/sumit_kumar_931/"><i className="fab fa-instagram fa-3x" style={{textDecoration: "none", background : "linear-gradient(to right, rgba(82, 106, 241, 0.986), #ff4dd3) ",borderRadius:"12px" }}></i></a>  </div> 
-    <div> <a href="https://www.facebook.com/profile.php?id=100008429205825"> <i className="fab fa-facebook-square fa-3x"></i> </a></div> 
-    <div>  <a href="https://twitter.com/SumitKu55624025"><i className="fab fa-twitter-square fa-3x"></i> </a> </div> 
-    <div> <a href="https://www.linkedin.com/in/sumit-kumar-03b99a210/"><i className="fab fa-linkedin fa-3x"></i> </a> </div> 
-      </div>
+
+  return (
+    <div className="container">
+      <div className="card w-75">
+        <div className="card-body">
+          <h3 className="card-title">Your Notes are Saves here</h3>
+          <p className="card-text">Write your Notes here and and its saves with Us</p>
         </div>
-    )
+      </div>
+
+      <div className="card w-75 my-5">
+        <div className="card-body">
+          <h3 className="card-title">You can Contact Us</h3>
+          <div> <a href="mailto:sumit280601@gmail.com"><i className="far fa-envelope fa-3x mx-3"></i> </a>
+            <a href="https://www.linkedin.com/in/sumit-kumar-03b99a210/" target="_blank"><i className="fab fa-linkedin fa-3x"></i> </a> </div>
+        </div>
+      </div>
+
+      {!localStorage.getItem('token') ? <form className=" d-flex justify-content-between ">
+        <Link className="btn btn-primary mx-2 mt-auto p-2 bd-highlight" id="ll" to="/login" role="submit">Login</Link>
+        <Link className="btn btn-primary mx-2 align-self-end" id="rs" to="/signup" role="submit">SignUp</Link>
+      </form> : " "}
+    </div>
+  )
 }
-<i class="fab fa-instagram"></i>
+
