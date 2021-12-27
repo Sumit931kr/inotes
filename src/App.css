@@ -20,3 +20,11 @@
     width: 100%;
     height: 100%;
   }
+  #centerp{
+   position: relative;
+  }
+  #center{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
