@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-
+import '../App.css'
 import noteContext from '../context/notes/noteContext';
 
 
@@ -10,7 +10,7 @@ const Noteitem = (props) => {
     return (
         <div className="col-md-3">
             <div className="card my-3" >
-                <div className="card-body">
+                <div className="card-body box">
                     <div className="d-flex align-items-center" id='centerp'>
                         <h5 className="card-title" >  {note.title}</h5>
                         <div id='center'>

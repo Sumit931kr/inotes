@@ -8,14 +8,14 @@ export default function About() {
 
   return (
     <div className="container">
-      <div className="card w-90">
+      <div className="card w-90 box">
         <div className="card-body">
           <h3 className="card-title">Your Notes are Saves here</h3>
           <p className="card-text">Write your Notes here and and its saves with Us</p>
         </div>
       </div>
 
-      <div className="card w-90 my-5">
+      <div className="card w-90 my-5 box">
         <div className="card-body">
           <h3 className="card-title ">You can Contact Us</h3>
           <div className='mt-4'> 

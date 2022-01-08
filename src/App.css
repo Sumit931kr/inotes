@@ -28,3 +28,11 @@
     top: 0px;
     right: 0px;
   }
+  .box{
+    box-shadow: 1px 1px grey;
+  }
+  /* Clealing the line under the Signup word in login page */
+  #lsu{
+color: #0066ff;
+text-decoration: none;
+  }

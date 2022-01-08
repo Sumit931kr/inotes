@@ -3,6 +3,7 @@ import noteContext from '../context/notes/noteContext';
 import AddNote from './AddNote';
 import Noteitem from './Noteitem';
 import { useNavigate } from 'react-router-dom'
+import '../App.css'
 
 const Notes = (props) => {
 
@@ -64,20 +65,20 @@ useEffect(() => {
                             <form>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label my-3">Title</label>
-                                    <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onchange} minLength={3} required />
+                                    <input type="text" className="form-control box" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onchange} minLength={3} required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
-                                    <input type="text" className="form-control" onChange={onchange} id="edescription" value={note.edescription} name="edescription" minLength={5} required />
+                                    <input type="text" className="form-control box" onChange={onchange} id="edescription" value={note.edescription} name="edescription" minLength={5} required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">tag</label>
-                                    <input type="text" className="form-control" onChange={onchange} id="etag" value={note.etag} name="etag" minLength={3} required />
+                                    <input type="text" className="form-control box" onChange={onchange} id="etag" value={note.etag} name="etag" minLength={3} required />
                                 </div>
                             </form>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" ref={refclose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" ref={refclose} className="btn btn-secondary box" data-bs-dismiss="modal">Close</button>
                             <button disabled={note.etitle.length < 3 || note.edescription.length < 5} type="button" className="btn btn-primary" onClick={handleonClick}>Update Note</button>
                         </div>
                     </div>

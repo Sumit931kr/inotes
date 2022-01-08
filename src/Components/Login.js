@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , Link } from 'react-router-dom'
 import Spinner from './Spinner';
+import '../App.css'
 
 const Login = (props) => {
     const [loading, setLoading] = useState(false);
@@ -68,6 +69,10 @@ const Login = (props) => {
                     <input type="password" className="form-control" value={credentials.password} name="password" id="password" onChange={onchange} />
                 </div>
                 <button type="submit" className="btn btn-primary" >Submit</button>
+                <br />
+                <br />
+                
+                <h3>Don't have an account? <Link to="/signup" id="lsu"> Sign up</Link></h3>
             </form>
         </div>
     )
