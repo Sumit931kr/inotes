@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Spinner from './Spinner';
+import '../App.css'
 
 const Signup = (props) => {
     const [loading, setLoading] = useState(false);
@@ -75,6 +76,9 @@ const Signup = (props) => {
                 </div>
 
                 <button type="submit" className="btn btn-primary" >Submit</button>
+                <br />
+                <br />
+                <h3> Already Have an account? <Link to="/login" id="sli">Log in</Link></h3>
             </form>
 
         </div>
