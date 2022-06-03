@@ -9,6 +9,7 @@ const AddNote = (props) => {
 
     const handleonClick = (e) => {
         e.preventDefault();
+
         addnote(note.title, note.description, note.tag);
         setnote({ title: "", description: "", tag: "" })
         props.showalert(" Note Added  Suceessfully", "success") 
@@ -36,7 +37,7 @@ const AddNote = (props) => {
                         <input type="text" className="form-control" onChange={onchange} value={note.tag} id="tag" name="tag" minLength={3} required />
                     </div>
                    
-                    <button disabled={note.title.length<3 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleonClick}>Add Note</button>
+                    <button disabled={note.title.length < 3 && note.description.length < 5} type="submit" className="btn btn-primary" onClick={handleonClick}>Add Note</button>
                 </form>
 
             </div>

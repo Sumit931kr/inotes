@@ -19,9 +19,10 @@ export default function About() {
         <div className="card-body">
           <h3 className="card-title ">You can Contact Us</h3>
           <div className='mt-4'> 
-            <a href="mailto:sumit280601@gmail.com"><i className="far fa-envelope fa-3x mx-4"></i> </a>
+            <a href="mailto:sumit931kumar@gmail.com"><i className="far fa-envelope fa-3x mx-4"></i> </a>
             <a href="https://www.linkedin.com/in/sumit-kumar-03b99a210/" rel="noreferrer" target="_blank"><i className="fab fa-linkedin fa-3x"></i> </a>
-            <a href="https://twitter.com/SumitKu55624025" rel="noreferrer" target="_blank"><i className="fab fa-twitter fa-3x mx-4"></i></a>
+            <a href="https://twitter.com/SumitKu55624026" rel="noreferrer" target="_blank"><i className="fab fa-twitter fa-3x mx-4"></i></a>
+            <a href="https://github.com/Sumit931kr" target="_blank"> Github</a>
              </div>
         </div>
       </div>

@@ -15,18 +15,18 @@ import Signup from './Components/Signup';
 import { useState } from 'react';
 function App() {
 
-const [alert, setalert] = useState(null)
+  const [alert, setalert] = useState(null)
 
-const showalert = (message, type)=> {
-  setalert({
-msg : message,
-type : type,
+  const showalert = (message, type) => {
+    setalert({
+      msg: message,
+      type: type,
+    }
+    )
+    setTimeout(() => {
+      setalert(null)
+    }, 2000);
   }
- )
- setTimeout(() => {
-   setalert(null)
- }, 2000);
-}
 
   return (
     <>
@@ -34,13 +34,13 @@ type : type,
         <Router>
           <Navbar />
 
-          <Alert alert={alert}/>
+          <Alert alert={alert} />
           <div className="container">
             <Routes>
-              <Route exact path="/inotes" element={<Home showalert={showalert}/>} />
+              <Route exact path="/inotes" element={<Home showalert={showalert} />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/login" element={<Login showalert={showalert}/>} />
-              <Route exact path="/signup" element={<Signup showalert={showalert}/>} />
+              <Route exact path="/login" element={<Login showalert={showalert} />} />
+              <Route exact path="/signup" element={<Signup showalert={showalert} />} />
             </Routes>
 
           </div>

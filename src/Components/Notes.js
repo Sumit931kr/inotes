@@ -7,22 +7,22 @@ import '../App.css'
 
 const Notes = (props) => {
 
-    
+
     const navigate = useNavigate();
 
     const { showalert } = props
     const context = useContext(noteContext);
     const { notes, getNotes, editnote } = context;
 
-useEffect(() => {
-    if(localStorage.getItem('token')){
-    getNotes();
-    }
-    else{
-        navigate('/login')
-    }
-    // eslint-disable-next-line
-}, [])
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            getNotes();
+        }
+        else {
+            navigate('/login')
+        }
+        // eslint-disable-next-line
+    }, [])
     const ref = useRef(null)
     const refclose = useRef(null)
     const [note, setnote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
