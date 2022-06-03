@@ -6,8 +6,9 @@ import '../App.css'
 
 const Signup = (props) => {
     const [loading, setLoading] = useState(false);
-    // const port = "https://aqueous-refuge-26214.herokuapp.com/"
-    const port = "http://localhost:4000/"
+    const port = "https://aqueous-refuge-26214.herokuapp.com/"
+
+    // const port = "http://localhost:4000/"
     const navigate = useNavigate();
     const mask = document.getElementById("mask");
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
