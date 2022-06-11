@@ -61,9 +61,9 @@ const Signup = (props) => {
         const result = await res?.profileObj;
         // const token = await res?.tokenId;
         const googleData = ({ email: result?.email, firstName: result?.givenName, lastName: result?.familyName })
-      
+
         try {
-        
+
             const response = await fetch(`${port}api/auth/googlesignup`, {
 
                 method: 'POST',
@@ -72,7 +72,7 @@ const Signup = (props) => {
                 }, body: JSON.stringify({ ...googleData })
 
             });
-         
+
             const json = await response.json();
 
             if (json.success) {
@@ -99,7 +99,10 @@ const Signup = (props) => {
     };
 
 
-    const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
+    const googleError = () => {
+        console.log('Google Sign In was unsuccessful. Try again later')
+        props.showalert("Something went wrong", "danger")
+    };
 
     return (
         <div className="container mt-3 my-2">

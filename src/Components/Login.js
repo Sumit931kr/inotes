@@ -34,13 +34,13 @@ const Login = (props) => {
 
             });
             const json = await response.json();
-           
+
             if (json.success) {
                 localStorage.setItem('token', json.authtoken);
                 props.showalert("Logged in Successfully", "success")
                 // redirect
                 setLoading(false)
-                navigate('/inotes')
+                navigate('/')
                 mask.style.display = "none";
             }
             else {
@@ -60,14 +60,14 @@ const Login = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
-    
+
     const googleSuccess = async (res) => {
         const result = await res?.profileObj;
         // const token = await res?.tokenId;
         const googleData = ({ email: result?.email })
-   
+
         try {
-          
+
             const response = await fetch(`${port}api/auth/googlelogin`, {
 
                 method: 'POST',
@@ -76,14 +76,14 @@ const Login = (props) => {
                 }, body: JSON.stringify({ ...googleData })
 
             });
-           
+
             const json = await response.json();
 
             if (json.success) {
                 // redirect
                 localStorage.setItem('token', json.authtoken);
                 setLoading(false)
-                navigate('/inotes')
+                navigate('/')
                 props.showalert("Gmail Login Successfully", "success");
                 mask.style.display = "none";
             }
@@ -97,6 +97,7 @@ const Login = (props) => {
 
         } catch (error) {
             console.log("Google Login mai error hai  " + error + error.message)
+            props.showalert("Something went wrong", "danger")
         }
 
 
@@ -104,7 +105,10 @@ const Login = (props) => {
 
 
 
-    const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
+    const googleError = () => {
+        console.log('Google Sign In was unsuccessful. Try again later')
+        props.showalert("Something went wrong", "danger")
+    };
 
     return (
         <div >
@@ -122,8 +126,8 @@ const Login = (props) => {
                 </div>
 
                 {loading ?
-                    <button  type="submit" className="btn btn-primary" > Loading  {loading && <Spinner />}   </button> :
-                    <button disabled={!(credentials.email.length >4 || credentials.password.length >4)} type="submit" className="btn btn-primary" > Submit </button>}
+                    <button type="submit" className="btn btn-primary" > Loading  {loading && <Spinner />}   </button> :
+                    <button disabled={!(credentials.email.length > 4 || credentials.password.length > 4)} type="submit" className="btn btn-primary" > Submit </button>}
                 <GoogleLogin
                     clientId="1035790105407-ndv1h019hnbb91c49q4jgakb5q1ffe12.apps.googleusercontent.com"
                     render={(renderProps) => (
